@@ -20,7 +20,7 @@ const gif = require("gif-search");
 
 const client = new Discord.Client({disableEveryone: true});
 
-const prefix = "1";
+const prefix = "2";
 /////////////////////////
 ////////////////////////
 
@@ -102,7 +102,7 @@ client.on('message', async msg => {
 	if (command === `play`) {
 		const voiceChannel = msg.member.voiceChannel;
         
-        if (!voiceChannel) return msg.channel.send("**لا أستطيع ان أجدك في اي قناه صوتيه**");
+        if (!voiceChannel) return msg.channel.send("**I can not find you in any audio channel...**");
         
         const permissions = voiceChannel.permissionsFor(msg.client.user);
         
@@ -342,29 +342,7 @@ client.on('message', message => {
     }
 });
 
-const devs = ['323160008411971585' , '323160008411971585' , '323160008411971585' , '323160008411971585'];
-const adminprefix = "J";
-client.on('message', message => {
-    var argresult = message.content.split(` `).slice(1).join(' ');
-      if (!devs.includes(message.author.id)) return;
-      
-  if (message.content.startsWith(adminprefix + 'ply')) {
-    client.user.setGame(argresult);
-      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
-  } else 
-  if (message.content.startsWith(adminprefix + 'wt')) {
-  client.user.setActivity(argresult, {type:'WATCHING'});
-      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
-  } else 
-  if (message.content.startsWith(adminprefix + 'ls')) {
-  client.user.setActivity(argresult , {type:'LISTENING'});
-      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
-  } else 
-  if (message.content.startsWith(adminprefix + 'st')) {
-    client.user.setGame(argresult, "https://www.twitch.tv/idk");
-      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
-  }
-  });
+
 
 
 client.login(process.env.BOT_TOKEN);
